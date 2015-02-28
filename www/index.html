@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-app="weather" ng-controller="WeatherCtrl as weatherCtrl">
+    <ion-pane>
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Weather</h1>
+        </ion-header-bar>
+        <ion-content class="text-center">
+            <div ng-show="loading">
+                Carregando informações...
+            </div>
+            <div ng-hide="loading">
+                <p>
+                    Temperatura: {{toCelsius(weatherInfo.currently.temperature)}}º
+                </p>
+                <p>
+                    Sensação térmica: {{toCelsius(weatherInfo.currently.apparentTemperature)}}º
+                </p>
+            </div>
+        </ion-content>
+    </ion-pane>
+</body>
+
+</html>
